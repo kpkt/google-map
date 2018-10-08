@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>  
+  <head>
+    <title>Google Maps Static Multiple Markers</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #static_multiple_makers {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>    
+    <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="static_multiple_makers"></div>
+    <script>
+      var locations  = [     
+           {
+            "id":"14",
+            "kategori":"island",
+            "latitude":"2.52044",
+            "longitude":"103.976044",
+            "nama":"Pulau Rawa",
+            "negeri":"JOHOR",
+           },
+           {
+             "id":"10",
+             "kategori":"island",
+             "latitude":"5.79602",
+             "longitude":"102.896072",
+             "nama":"Lang Tengah Island",
+             "negeri":"TERENGGANU"
+           },
+           {
+              "id":"13",
+              "kategori":"island",
+              "latitude":"6.22458",
+              "longitude":"99.715469",
+              "nama":"Pulau Beras Basah",
+              "negeri":"KEDAH"  
+            },
+           {
+              "id":"9",
+              "kategori":"island",
+              "latitude":"4.22749",
+              "longitude":"100.557739",
+              "nama":"Pangkor Island",
+              "negeri":"PERAK"
+           },
+           {
+             "id":"5",
+             "kategori":"island",
+             "latitude":"2.79025",
+             "longitude":"104.169853",
+             "nama":"Pulau Tioman",
+             "negeri":"PAHANG"
+           },
+           {
+            "id":"6",
+            "kategori":"island",
+            "latitude":"6.09404",
+            "longitude":"100.05654",
+            "nama":"Pulau Payar Marine Park",
+            "negeri":"KEDAH"
+           },
+           {
+            "id":"2",
+            "kategori":"island",
+            "latitude":"5.78444",
+            "longitude":"103.006889",
+            "nama":"Pulau Redang",
+            "negeri":"TERENGGANU"},
+          {
+            "id":"3",
+            "kategori":"island",
+            "latitude":"6.3233",
+            "longitude":"99.854721",
+            "nama":"Langkawi Island",
+            "negeri":"KEDAH"
+          },
+          {
+            "id":"12",
+            "kategori":"island",
+            "latitude":"2.44415",
+            "longitude":"104.52475",
+            "nama":"Pulau Aur",
+            "negeri":"JOHOR"
+          }
+        ];
+        var centerLatLng = new google.maps.LatLng(3.139530, 101.687333);
+        var map = new google.maps.Map(document.getElementById('static_multiple_makers'), {
+          zoom: 6,
+          center: centerLatLng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          zoomControl: true,
+          mapTypeControl: false,
+          scaleControl: false,
+          streetViewControl: false,
+          rotateControl: false,
+          fullscreenControl: false
+
+        });
+
+        var marker;
+        locations.forEach(function(location) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(location['latitude'], location['longitude']),
+            map: map
+          });
+        });
+    </script>
+  </body>
+</html>
